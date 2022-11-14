@@ -1,0 +1,33 @@
+.container {
+    width: 85%;
+    margin: auto;
+}
+
+
+.mat-caf{
+    margin-top: .8rem;
+}
+
+.content {
+    width: 100%;
+}
+
+.novo-todo {
+    width: 100%;
+    margin-top: 3rem;
+}
+
+p {
+    text-align: end;
+    font-weight: 500;
+    color: rgb(233, 233, 233);
+    margin-bottom: 0;
+}
+
+.actions {
+    margin: .5rem;
+}
+
+.actions button {
+    margin: .5rem;
+}

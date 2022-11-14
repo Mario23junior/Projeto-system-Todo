@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { FooterComponent } from './components/footer/footer.component';
 import { TodoListAllComponent } from './components/todo-list-all/todo-list-all.component';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { TodoListAllComponent } from './components/todo-list-all/todo-list-all.c
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
