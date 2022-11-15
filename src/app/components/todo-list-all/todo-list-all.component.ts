@@ -9,9 +9,9 @@ import { TodoService } from 'src/app/services/todo.service';
 })
 export class TodoListAllComponent implements OnInit {
 
-
   list: Todo[] = []
   closed = 0
+  listFinish: Todo[] = [];
 
   constructor(
     private service: TodoService
@@ -25,17 +25,16 @@ export class TodoListAllComponent implements OnInit {
   findAll(): void {
     this.service.findAll()
     .subscribe((res) => {
-      this.list = res
-      this.countClose()
-    })
+      res.forEach(todo => {
+        if(todo.finalizado) {
+          this.listFinish.push(todo)
+        } else {
+          this.list.push(todo)
+        }
+      })
+      this.closed = this.listFinish.length
+     })
   }
-
-  countClose():void {
-    for(let todo of this.list) {
-      if(todo.finalizado){
-        this.closed++
-      }
-    }
-  }
+ 
 
 }
