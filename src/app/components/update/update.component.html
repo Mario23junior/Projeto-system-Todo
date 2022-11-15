@@ -18,12 +18,13 @@
 
             <mat-form-field class="form">
                 <mat-label>Descrição</mat-label>
-                <input [(ngModel)]="todo.descricao" name="todo.descricao" matInput placeholder="Ex. Estudar SpringBoot 2.7">
+                <input [(ngModel)]="todo.descricao" name="todo.descricao" matInput
+                    placeholder="Ex. Estudar SpringBoot 2.7">
             </mat-form-field>
         </div>
 
         <mat-card-actions>
-            <button mat-stroked-button  (click)="update()" color="accent">Criar</button>
+            <button mat-stroked-button (click)="update()" color="accent">Atualizar</button>
             <button mat-stroked-button (click)="cancel()" color="warn">cancelar</button>
         </mat-card-actions>
     </mat-card>

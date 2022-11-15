@@ -27,12 +27,17 @@ export class TodoService {
   }
 
   create(todo: Todo): Observable<Todo> {
-     return this.http.post<Todo>(this.baseUrl,todo)
+    return this.http.post<Todo>(this.baseUrl, todo)
   }
 
   update(todo: Todo): Observable<Todo> {
     let url = `${this.baseUrl}${todo.id}`
     return this.http.put<Todo>(url, todo)
+  }
+
+  findById(id: any): Observable<Todo> {
+    let url = `${this.baseUrl}${id}`
+    return this.http.get<Todo>(url)
   }
 
   message(msg: String): void {
