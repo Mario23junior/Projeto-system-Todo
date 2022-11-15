@@ -39,7 +39,13 @@ export class TodoListAllComponent implements OnInit {
   }
 
   finalizar(item:Todo): void{
-    this.service.update()
+    item.finalizado = true
+    this.service.update(item).subscribe
+    ((res) => {
+         this.service.message("Terefa realizada com sucesso.")
+         this.list = this.list.filter(todo => todo.id != item.id)
+         this.closed++;
+     })
   }
 
   delete(id:any): void{

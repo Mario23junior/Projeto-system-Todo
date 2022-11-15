@@ -14,23 +14,28 @@ export class TodoService {
   constructor(
     private http: HttpClient,
     private snackBar: MatSnackBar
-    ) { }
+  ) { }
 
   findAll(): Observable<Todo[]> {
     let urlreq = this.baseUrl
     return this.http.get<Todo[]>(urlreq)
   }
 
-  delete(id:any):Observable<void> {
+  delete(id: any): Observable<void> {
     let url = `${this.baseUrl}${id}`
     return this.http.delete<void>(url)
   }
 
-  message(msg:String): void {
-    this.snackBar.open(`${msg}`,'ok',{
-      horizontalPosition:'end',
-      verticalPosition:'top',
-      duration:5000
+  update(todo: Todo):Observable<Todo> {
+    let url = `${this.baseUrl}${todo.id}`
+    return this.http.put<Todo>(url,todo)
+  }
+
+  message(msg: String): void {
+    this.snackBar.open(`${msg}`, 'ok', {
+      horizontalPosition: 'end',
+      verticalPosition: 'top',
+      duration: 5000
     }
     )
   }
