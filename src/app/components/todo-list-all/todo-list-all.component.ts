@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Todo } from 'src/app/model/todo';
 
 @Component({
   selector: 'app-todo-list-all',
@@ -6,6 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo-list-all.component.css']
 })
 export class TodoListAllComponent implements OnInit {
+
+
+  list: Todo[] = [
+    {
+      titulo: "Titulo experimental",
+      dataParaFinalizar: new Date,
+      finalizado: false
+    },
+    {
+      titulo: "Titulo experimental",
+      dataParaFinalizar: new Date,
+      finalizado: true
+    },
+  ]
 
   constructor() { }
 
