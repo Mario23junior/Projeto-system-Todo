@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { TodoListAllComponent } from './components/todo-list-all/todo-list-all.component';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatBadgeModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

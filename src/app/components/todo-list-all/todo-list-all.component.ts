@@ -11,6 +11,7 @@ export class TodoListAllComponent implements OnInit {
 
 
   list: Todo[] = []
+  closed = 0
 
   constructor(
     private service: TodoService
@@ -18,14 +19,23 @@ export class TodoListAllComponent implements OnInit {
 
   ngOnInit(): void {
     this.findAll()
-  }
+   }
 
 
   findAll(): void {
     this.service.findAll()
     .subscribe((res) => {
       this.list = res
+      this.countClose()
     })
+  }
+
+  countClose():void {
+    for(let todo of this.list) {
+      if(todo.finalizado){
+        this.closed++
+      }
+    }
   }
 
 }

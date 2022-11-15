@@ -3,8 +3,19 @@
     margin: auto;
 }
 
+.badge {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-.mat-card{
+.badge button {
+    margin: auto;
+    width: 50%;
+}
+
+.mat-card {
     margin-top: .8rem;
 }
 

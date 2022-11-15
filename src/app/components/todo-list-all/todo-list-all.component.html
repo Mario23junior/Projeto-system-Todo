@@ -1,6 +1,10 @@
 <div class="container">
-  <button class="novo-todo mat-elevation-z8" mat-stroked-button color="primary">Primary</button>
 
+  <div class="badge">
+    <button mat-stroked-button color="primary" matBadge="{{closed}}">Tarefas finalizadas</button>
+  </div>
+
+  <button class="novo-todo mat-elevation-z8" mat-stroked-button color="primary">Primary</button>
   <div class="content" *ngFor="let item of list">
     <mat-card class="mat-elevation-z8">
       <p>Data para finalizar tarefa : {{item.dataParaFinalizar}}</p>
