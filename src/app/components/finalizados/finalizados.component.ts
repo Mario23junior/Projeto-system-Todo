@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
+import { Todo } from 'src/app/model/todo';
+import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
   selector: 'app-finalizados',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FinalizadosComponent implements OnInit {
 
-  constructor() { }
+  listFinish: Todo[] = [];
+
+  constructor(
+    private service: TodoService,
+    private router:Router
+  ) { }
 
   ngOnInit(): void {
+    this.findAll()
+  }
+  findAll(): void {
+    this.service.findAll()
+      .subscribe((res) => {
+        res.forEach(todo => {
+          if (todo.finalizado) {
+            this.listFinish.push(todo)
+          }
+        })
+      })
+  }
+
+  voltar(){
+    this.router.navigate([''])
   }
 
 }

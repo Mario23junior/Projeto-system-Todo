@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { Todo } from 'src/app/model/todo';
 import { TodoService } from 'src/app/services/todo.service';
 
@@ -14,7 +15,8 @@ export class TodoListAllComponent implements OnInit {
   listFinish: Todo[] = [];
 
   constructor(
-    private service: TodoService
+    private service: TodoService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -36,6 +38,10 @@ export class TodoListAllComponent implements OnInit {
      })
   }
 
+  finalizar(item:Todo): void{
+    this.service.update()
+  }
+
   delete(id:any): void{
      this.service.delete(id).subscribe
      ((res) => {
@@ -46,5 +52,8 @@ export class TodoListAllComponent implements OnInit {
      })
   }
  
+  navegarFinalizados(){
+    this.router.navigate(['finalizados'])
+  }
 
 }
