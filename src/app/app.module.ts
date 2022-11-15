@@ -13,6 +13,7 @@ import { TodoListAllComponent } from './components/todo-list-all/todo-list-all.c
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatButtonModule,
     MatCardModule,
     HttpClientModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatSnackBarModule
 
   ],
   providers: [],

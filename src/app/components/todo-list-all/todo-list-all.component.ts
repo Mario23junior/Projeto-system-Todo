@@ -35,6 +35,16 @@ export class TodoListAllComponent implements OnInit {
       this.closed = this.listFinish.length
      })
   }
+
+  delete(id:any): void{
+     this.service.delete(id).subscribe
+     ((res) => {
+      if(res === null) {
+         this.service.message("Tarefa deletada com sucesso")
+         this.list = this.list.filter(todo => todo.id != id)
+      }
+     })
+  }
  
 
 }
