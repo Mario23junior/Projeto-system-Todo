@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/model/todo';
+import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
   selector: 'app-todo-list-all',
@@ -9,22 +10,22 @@ import { Todo } from 'src/app/model/todo';
 export class TodoListAllComponent implements OnInit {
 
 
-  list: Todo[] = [
-    {
-      titulo: "Titulo experimental",
-      dataParaFinalizar: new Date,
-      finalizado: false
-    },
-    {
-      titulo: "Titulo experimental",
-      dataParaFinalizar: new Date,
-      finalizado: true
-    },
-  ]
+  list: Todo[] = []
 
-  constructor() { }
+  constructor(
+    private service: TodoService
+  ) { }
 
   ngOnInit(): void {
+    this.findAll()
+  }
+
+
+  findAll(): void {
+    this.service.findAll()
+    .subscribe((res) => {
+      this.list = res
+    })
   }
 
 }
