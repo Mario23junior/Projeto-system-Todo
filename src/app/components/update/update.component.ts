@@ -46,10 +46,10 @@ export class UpdateComponent implements OnInit {
   update(): void {
     this.formatarData()
     this.service.update(this.todo).subscribe((res) => {
-      this.message("Uma nova tarefa foi atualizada com sucesso.")
+      this.service.message("Uma nova tarefa foi atualizada com sucesso.")
       this.router.navigate(['']);
     }, err => {
-      this.message("Falha ao atualizada tarefa, por favor revise os valores")
+      this.service.message("Falha ao atualizada tarefa, por favor revise os valores")
       this.router.navigate([''])
     })
   }
@@ -59,15 +59,7 @@ export class UpdateComponent implements OnInit {
     this.todo.dataParaFinalizar = `${data.getDate()}/${data.getMonth() + 1}/${data.getFullYear()}`
   }
 
-  message(msg: String): void {
-    this.snackBar.open(`${msg}`, 'ok', {
-      horizontalPosition: 'end',
-      verticalPosition: 'top',
-      // panelClass: [color],
-      duration: 5000
-    }
-    )
-  }
+
 
 }
 

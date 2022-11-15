@@ -13,6 +13,7 @@ export class TodoService {
   baseUrl = "http://localhost:8080/api/projet/todo/"
   constructor(
     private http: HttpClient,
+    private snackBar: MatSnackBar
   ) { }
 
   findAll(): Observable<Todo[]> {
@@ -39,5 +40,13 @@ export class TodoService {
     return this.http.get<Todo>(url)
   }
 
- 
+  message(msg: String): void {
+    this.snackBar.open(`${msg}`, 'ok', {
+      horizontalPosition: 'end',
+      verticalPosition: 'top',
+      // panelClass: [color],
+      duration: 5000
+    }
+    )
+  }
 }
