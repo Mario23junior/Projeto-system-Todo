@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Route, Router } from '@angular/router';
 import { Todo } from 'src/app/model/todo';
 import { TodoService } from 'src/app/services/todo.service';
@@ -16,7 +17,9 @@ export class TodoListAllComponent implements OnInit {
 
   constructor(
     private service: TodoService,
-    private router:Router
+    private router:Router,
+    private snackBar: MatSnackBar
+
   ) { }
 
   ngOnInit(): void {
@@ -42,7 +45,7 @@ export class TodoListAllComponent implements OnInit {
     item.finalizado = true
     this.service.update(item).subscribe
     ((res) => {
-         this.service.message("Terefa realizada com sucesso.")
+         this.message("Terefa realizada com sucesso.")
          this.list = this.list.filter(todo => todo.id != item.id)
          this.closed++;
      })
@@ -52,7 +55,7 @@ export class TodoListAllComponent implements OnInit {
      this.service.delete(id).subscribe
      ((res) => {
       if(res === null) {
-         this.service.message("Tarefa deletada com sucesso")
+         this.message("Tarefa deletada com sucesso")
          this.list = this.list.filter(todo => todo.id != id)
       }
      })
@@ -60,6 +63,15 @@ export class TodoListAllComponent implements OnInit {
  
   navegarFinalizados(){
     this.router.navigate(['finalizados'])
+  }
+
+  message(msg: String): void {
+    this.snackBar.open(`${msg}`, 'ok', {
+      horizontalPosition: 'end',
+      verticalPosition: 'top',
+      duration: 5000
+    }
+    )
   }
 
 }
