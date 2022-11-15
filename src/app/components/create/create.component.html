@@ -3,7 +3,8 @@
         <h1>Criando nova tarefa</h1>
         <mat-form-field class="data-finalizar" appearance="fill">
             <mat-label>Input disabled</mat-label>
-            <input matInput [matDatepicker]="dp3" disabled>
+            <input matInput [(ngModel)]="todo.dataParaFinalizar" name="dataParaFinalizar" [matDatepicker]="dp3"
+                disabled>
             <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
             <mat-datepicker #dp3 disabled="false"></mat-datepicker>
         </mat-form-field>
@@ -12,18 +13,17 @@
         <div class="forms">
             <mat-form-field class="form">
                 <mat-label>Titulo</mat-label>
-                <input matInput placeholder="Ex. Estudar SpringBoot">
+                <input [(ngModel)]="todo.titulo" name="todo.titulo" matInput placeholder="Ex. Estudar SpringBoot">
             </mat-form-field>
 
             <mat-form-field class="form">
                 <mat-label>Descrição</mat-label>
-                <input matInput placeholder="Ex. Estudar SpringBoot 2.7">
+                <input [(ngModel)]="todo.descricao" name="todo.descricao" matInput placeholder="Ex. Estudar SpringBoot 2.7">
             </mat-form-field>
         </div>
 
-
         <mat-card-actions>
-            <button mat-stroked-button color="accent">Criar</button>
+            <button mat-stroked-button  (click)="save()" color="accent">Criar</button>
             <button mat-stroked-button (click)="cancel()" color="warn">cancelar</button>
         </mat-card-actions>
     </mat-card>

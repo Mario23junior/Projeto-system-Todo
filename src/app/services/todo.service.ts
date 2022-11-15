@@ -26,9 +26,13 @@ export class TodoService {
     return this.http.delete<void>(url)
   }
 
-  update(todo: Todo):Observable<Todo> {
+  create(todo: Todo): Observable<Todo> {
+     return this.http.post<Todo>(this.baseUrl,todo)
+  }
+
+  update(todo: Todo): Observable<Todo> {
     let url = `${this.baseUrl}${todo.id}`
-    return this.http.put<Todo>(url,todo)
+    return this.http.put<Todo>(url, todo)
   }
 
   message(msg: String): void {
