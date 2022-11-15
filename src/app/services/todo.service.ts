@@ -10,7 +10,7 @@ import { Todo } from '../model/todo';
 })
 export class TodoService {
 
-  baseUrl = environment.baseUrl
+  baseUrl = "http://localhost:8080/api/projet/todo/"
   constructor(
     private http: HttpClient,
     private snackBar: MatSnackBar

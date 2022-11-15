@@ -14,13 +14,15 @@ import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FinalizadosComponent } from './components/finalizados/finalizados.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    TodoListAllComponent
+    TodoListAllComponent,
+    FinalizadosComponent
   ],
   imports: [
     BrowserModule,
